@@ -210,10 +210,7 @@ export class DownloadManager extends EventEmitter {
           )
         } catch (e) {
           // 404 error handling: skip missing files on the server
-          if (
-            e.name === "HTTPError" &&
-            (e as any).response?.statusCode === 404
-          ) {
+          if (e instanceof HTTPError && e.response?.statusCode === 404) {
             error(`Ignored missing file (404 Not Found): ${fullpath}`)
 
             // remove the empty file that might have been created on disk
