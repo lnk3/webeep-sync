@@ -3,7 +3,7 @@ import fs from "fs/promises"
 import { createWriteStream } from "fs"
 import stream from "stream/promises"
 import { EventEmitter } from "events"
-import got from "got"
+import got, { HTTPError } from "got"
 
 import { createLogger } from "./logger"
 import { FileInfo, moodleClient } from "./moodle"
